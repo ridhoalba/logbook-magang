@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('kelompoks', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('pembimbing');
+            $table->foreignId('dosen_id')->constrained();
             $table->timestamps();
         });
     }

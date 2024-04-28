@@ -81,11 +81,12 @@ class ProyekController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Proyek $proyek)
-    {
+    {   
+        $mentions = User::where('kelompok_id', auth()->user()->kelompok_id)->where('id', '!=', auth()->user()->id)->get();
         return view('beranda.proyek.edit', [
             'active' => 'proyek',
             'proyek' => $proyek,
-            'users' => User::all()
+            'mentions' => $mentions
         ]);
     }
 
@@ -99,9 +100,19 @@ class ProyekController extends Controller
             'tanggal_selesai' => 'required',
             'nama' => 'required',
             'deskripsi' => 'required',
-            'kelompok' => 'required',
-            'dokumentasi' => 'required|image|file|max:1024'
+            'dokumentasi' => 'image|file|max:1024'
         ]);
+
+        $mentions = $request->input('mention', []);
+
+// Jika tidak ada mention yang dipilih, maka kosongkan array mention
+        if (empty($mentions)) {
+            $mentions = [];
+        }
+
+        if (!empty($mentions) && !in_array(auth()->user()->id, $mentions)) {
+            $mentions[] = auth()->user()->id;
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
 
@@ -114,6 +125,8 @@ class ProyekController extends Controller
 
         Proyek::where('id', $proyek->id)->update($validatedData);
 
+        $proyek->mentions()->sync($mentions);
+
         return redirect('/')->with('success', 'Proyek telah diubah !');
 
     }
@@ -123,10 +136,14 @@ class ProyekController extends Controller
      */
     public function destroy(Proyek $proyek)
     {
+        $proyek->mentions()->detach();
+
         if($proyek->dokumentasi) {
             Storage::delete($proyek->dokumentasi);
         }
+
         Proyek::destroy($proyek->id);
+
 
         return redirect('/')->with('success', 'Proyek telah dihapus !');
     }

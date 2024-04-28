@@ -50,22 +50,25 @@
           <trix-editor input="deskripsi"></trix-editor>
         </div>
         <div class="mb-3">
-          <label for="kelompok" class="form-label">Bersama</label>
-          <input type="text" class="form-control @error('kelompok') is-invalid @enderror" id="kelompok" name="kelompok" required value="{{ old('kelompok', $proyek->kelompok) }}">
-          @error('kelompok')
-            <div class="invalid-feedback">
-              {{ $message }}
-            </div>
-          @enderror
-        </div>
+          <label for="mention" class="form-label">Bersama</label>
+          <select multiple class="form-select" name="mention[]">
+              @foreach ($mentions as $mention)
+                  @php
+                      $isSelected = $proyek->mentions->contains($mention->id); // Periksa apakah pengguna disebutkan dalam proyek
+                  @endphp
+                  <option value="{{ $mention->id }}" {{ $isSelected ? 'selected' : '' }}>{{ $mention->name }}</option>
+              @endforeach
+          </select>
+      </div>      
         <div class="mb-3">
           <label for="dokumentasi" class="form-label">Dokumentasi</label>
+          <input type="hidden" name="oldImage" value="{{ $proyek->dokumentasi }}">
           @if ($proyek->dokumentasi)
                 <img src="{{ asset('storage/' . $proyek->dokumentasi) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
               @else
                 <img class="img-preview img-fluid mb-3 col-sm-5">
               @endif
-                <input class="form-control  @error('dokumentasi') is-invalid @enderror" type="file" id="dokumentasi" name="dokumentasi" onchange="previewImage()">
+                <input class="form-control  @error('dokumentasi') is-invalid @enderror" type="file" id="dokumentasi" name="dokumentasi" onchange="previewImage()" value="{{ $proyek->dokumentasi }}">
           @error('dokumentasi')
             <div class="invalid-feedback">
               {{ $message }}
@@ -77,4 +80,19 @@
         </div>
     </form>
 </div>
+<script>
+  function previewImage() {
+  const image = document.querySelector('#dokumentasi');
+  const imgPreview = document.querySelector('.img-preview');
+
+  imgPreview.style.display = 'block';
+
+  const ofReader = new FileReader();
+  ofReader.readAsDataURL(dokumentasi.files[0]);
+
+  ofReader.onload = function(oFREvent) {
+    imgPreview.src = oFREvent.target.result;
+  }
+}
+</script>
 @endsection

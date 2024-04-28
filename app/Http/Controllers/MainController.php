@@ -22,6 +22,7 @@ class MainController extends Controller
         $kelompoks = Kelompok::whereHas('users', function($query) use ($userId) {
             $query->where('id', $userId);
         })->get();
+        
 
 // Mengambil proyek-proyek bersama yang termasuk pengguna yang sedang login
         $proyek_bersama = Proyek::whereHas('mentions', function ($query) use ($userId) {

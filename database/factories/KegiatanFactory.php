@@ -19,7 +19,6 @@ class KegiatanFactory extends Factory
         return [
             'tanggal' => $this->faker->dateTimeThisMonth(),
             'kegiatan' => collect($this->faker->paragraphs(mt_rand(5, 10)))->map(fn($p) => "<p>$p</p>")->implode(''),
-            'dokumentasi' => 'messi.jpg',
             'user_id' => mt_rand(1, 10)
         ];
     }

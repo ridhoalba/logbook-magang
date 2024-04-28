@@ -20,9 +20,12 @@
           @auth
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-person-circle"></i> {{ auth()->user()->name }}
+              <i class="bi bi-person-circle"></i> {{ auth()->user()->nim }}
             </a>
             <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+              <li>
+                <a href="/password/reset" class="dropdown-item text-light" ><i class="bi bi-lock"></i> Ubah Password</a>
+              </li>
               <li>
                 <form action="/logout" method="post">
                   @csrf

@@ -18,7 +18,7 @@ class KelompokFactory extends Factory
     {
         return [
             'nama' => $this->faker->sentence(mt_rand(2, 20)),
-            'pembimbing' => fake()->name()
+            'dosen_id' => mt_rand(1, 10)
         ];
     }
 }

@@ -11,29 +11,29 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('dosens', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('nim', 9)->unique();
+            $table->string('nip', 20)->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('kelompok_id');
+            // Tambahkan kolom untuk informasi tambahan dosens jika diperlukan
             $table->rememberToken();
             $table->timestamps();
         });
 
-        Schema::create('password_reset_tokens', function (Blueprint $table) {
+        Schema::create('password_reset_tokens_dosens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
 
-        Schema::create('sessions', function (Blueprint $table) {
+        Schema::create('sessions_dosen', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
+            $table->foreignId('dosen_id')->nullable()->index();
             $table->string('ip_address', 45)->nullable();
-            $table->text('user_agent')->nullable();
+            $table->text('dosen_agent')->nullable();
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
@@ -44,7 +44,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('dosens');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }

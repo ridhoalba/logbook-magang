@@ -30,9 +30,9 @@
         @csrf
         <img src="https://sim-online.polije.ac.id/assets/img/logo-gabung-putih.png?h=050193e552edd7b265240803b5cf9d30" alt="" class="img-fluid mt-4">
         <div class="mb-3">
-          <label for="email" class="form-label mt-3"></label>
-          <input type="email" name="email" class="form-control @error('email') is-invalid  @enderror" id="email" placeholder="Masukkan NIM Anda" autofocus required value="{{ old('email') }}">
-          @error('email')
+          <label for="nim" class="form-label mt-3"></label>
+          <input type="nim" name="nim" class="form-control @error('nim') is-invalid  @enderror" id="nim" placeholder="Masukkan NIM Anda" autofocus required value="{{ old('nim') }}">
+          @error('nim')
               <div class="invalid-feedback">
                 {{ $message }}
               </div>

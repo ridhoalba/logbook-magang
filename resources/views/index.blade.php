@@ -29,13 +29,13 @@
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-4 fw-bolder">Pembimbing</div>
-                        <div class="col-md-8">{{ $kelompok->pembimbing }}</div>
+                        <div class="col-md-8">{{ $kelompok->dosenPembimbing->name }}</div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-4 fw-bolder">Anggota</div>
                         <div class="col-md-8">
                                 @foreach ($kelompok->users as $user)
-                                    <div class="col">{{ $user->name }}</div>
+                                    <div class="col">{{ $user->name }} ({{ $user->nim }})</div>
                                 @endforeach
                         </div>
                     </div>
@@ -65,9 +65,11 @@
                         <td class="col">{{ $loop->iteration }}</td>
                         <td class="col">{{ $kegiatan->tanggal }}</td>
                         <td class="col">{!! substr($kegiatan->kegiatan, 0, 50) !!}</td>
-                        <td class="col-2">
+                        <td class="col-2 text-center">
                             @if ($kegiatan->dokumentasi)
                                 <img src="{{ asset('storage/' . $kegiatan->dokumentasi) }}" alt="" style="max-height: 50px; overflow: hidden;" class="w-50">
+                            @else
+                                <i class="fas fa-file-image"></i>
                             @endif
                         </td>
                         <td class="col" >
@@ -105,11 +107,14 @@
                         <td class="col">{{ $proyek->tanggal_mulai }} / {{ $proyek->tanggal_selesai }}</td>
                         <td class="col-2">{{ substr($proyek->nama, 0, 20)  }}</td>
                         <td class="col-5">{!! substr($proyek->deskripsi, 0, 100) !!}</td>
-                        <td class="col-2">
+                        <td class="col-2 text-center">
                             @if ($proyek->dokumentasi)
                                 <img src="{{ asset('storage/' . $proyek->dokumentasi) }}" alt="" style="max-height: 50px; overflow: hidden;" class="w-50">
+                            @else
+                                <i class="fas fa-file-image"></i>
                             @endif
                         </td>
+                        
                         <td class="col">
                             <a href="/beranda/proyek/{{ $proyek->id }}/edit" class="badge bg-warning d-inline"><i class="bi bi-pencil-square"></i></a>
                             <form action="/beranda/proyek/{{ $proyek->id }}" method="post" class="d-inline">
@@ -152,9 +157,11 @@
                                 @endif
                             @endforeach
                         </td>
-                        <td class="col-2">
+                        <td class="col-2 text-center">
                             @if ($proyek->dokumentasi)
-                            <img src="{{ asset('storage/' . $proyek->dokumentasi) }}" alt="" style="max-height: 50px; overflow: hidden;" class="w-50">
+                                <img src="{{ asset('storage/' . $proyek->dokumentasi) }}" alt="" style="max-height: 50px; overflow: hidden;" class="w-50">
+                            @else
+                                <i class="fas fa-file-image"></i>
                             @endif
                         </td>
                         <td class="col">

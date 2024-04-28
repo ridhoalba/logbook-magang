@@ -21,7 +21,6 @@ class ProyekFactory extends Factory
             'tanggal_selesai' => $this->faker->dateTimeThisMonth(),
             'nama' => $this->faker->sentence(mt_rand(2, 20)),
             'deskripsi' => collect($this->faker->paragraphs(mt_rand(5, 10)))->map(fn($p) => "<p>$p</p>")->implode(''),
-            'dokumentasi' => 'messi.jpg',
             'user_id' => mt_rand(1, 10)
         ];
     }

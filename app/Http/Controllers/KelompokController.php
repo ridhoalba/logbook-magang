@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelompok;
+use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StoreKelompokRequest;
 use App\Http\Requests\UpdateKelompokRequest;
 
@@ -13,7 +14,16 @@ class KelompokController extends Controller
      */
     public function index()
     {
-        //
+        $userId = auth()->user()->id;
+        
+        $kelompoks = Kelompok::whereHas('users', function($query) use ($userId) {
+            $query->where('id', $userId);
+        })->get();
+
+        return view('dospem.beranda.index', [
+            'active' => 'dospem',
+            'kelompoks' => $kelompoks
+        ]);
     }
 
     /**
