@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kelompok;
-use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StoreKelompokRequest;
+use App\Models\User;
+use App\Models\Kelompok;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\UpdateKelompokRequest;
 
 class KelompokController extends Controller
@@ -20,9 +22,12 @@ class KelompokController extends Controller
             $query->where('id', $userId);
         })->get();
 
-        return view('dospem.beranda.index', [
-            'active' => 'dospem',
-            'kelompoks' => $kelompoks
+        $users = User::all();
+
+        return view('beranda.kelompok.index', [
+            'active' => 'daftar',
+            'kelompoks' => $kelompoks,
+            'users' => $users
         ]);
     }
 
@@ -31,7 +36,7 @@ class KelompokController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -39,7 +44,19 @@ class KelompokController extends Controller
      */
     public function store(StoreKelompokRequest $request)
     {
-        //
+        // Membuat kelompok baru
+        $kelompok = Kelompok::create($request->validated());
+
+        // Menyimpan anggota kelompok yang dipilih
+        $selectedUsers = $request->input('user_id', []);
+        foreach ($selectedUsers as $userId) {
+            $user = User::findOrFail($userId);
+            $user->kelompok_id = $kelompok->id;
+            $user->save();
+        }
+
+        // Kembalikan ke halaman beranda
+        return redirect('/beranda/kelompok')->with('success', 'Kelompok magang berhasil dibuat.');
     }
 
     /**
@@ -55,7 +72,7 @@ class KelompokController extends Controller
      */
     public function edit(Kelompok $kelompok)
     {
-        //
+        
     }
 
     /**

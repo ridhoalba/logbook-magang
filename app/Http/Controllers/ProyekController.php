@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Proyek;
 use Illuminate\Http\Request;
+use App\Models\KomentarProyek;
 use Illuminate\Support\Facades\Storage;
 
 class ProyekController extends Controller
@@ -83,10 +84,12 @@ class ProyekController extends Controller
     public function edit(Proyek $proyek)
     {   
         $mentions = User::where('kelompok_id', auth()->user()->kelompok_id)->where('id', '!=', auth()->user()->id)->get();
+        $komentarProyek = KomentarProyek::where('id_proyek', $proyek->id)->latest()->first();
         return view('beranda.proyek.edit', [
             'active' => 'proyek',
             'proyek' => $proyek,
-            'mentions' => $mentions
+            'mentions' => $mentions,
+            'komentarProyek' => $komentarProyek
         ]);
     }
 

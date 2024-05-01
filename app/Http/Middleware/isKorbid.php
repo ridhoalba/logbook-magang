@@ -4,9 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App\Http\Middleware\dosen;
 use Symfony\Component\HttpFoundation\Response;
 
-class Nip
+class isKorbid
 {
     /**
      * Handle an incoming request.
@@ -15,8 +16,9 @@ class Nip
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // bisa akses dospem beranda jika login menggunakan nip
-        
+        if(!auth()->guard('dosen')->check() || !auth()->guard('dosen')->user()->is_korbid) {
+            abort(403);
+        }
         return $next($request);
     }
 }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('tanggal_selesai');
             $table->string('nama');
             $table->text('deskripsi');
+            $table->enum('accept', ['accepted', 'pending', 'rejected'])->default('pending');
             $table->string('dokumentasi')->nullable();
             $table->foreignId('user_id');
             $table->timestamps();

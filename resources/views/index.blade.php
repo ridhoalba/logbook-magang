@@ -29,7 +29,13 @@
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-4 fw-bolder">Pembimbing</div>
-                        <div class="col-md-8">{{ $kelompok->dosenPembimbing->name }}</div>
+                        <div class="col-md-8">
+                            @if ($kelompok->dosenPembimbing)
+                                {{ $kelompok->dosenPembimbing->name }}
+                            @else
+                                <span class="text-muted">Belum ditetapkan</span>
+                            @endif
+                        </div>
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-4 fw-bolder">Anggota</div>
@@ -55,6 +61,7 @@
                     <th class="col">#</th>
                     <th class="col">Tanggal</th>
                     <th class="col">Kegiatan</th>
+                    <th class="col">Status</th>
                     <th class="col-2">Dokumentasi</th>
                     <th class="col"><i class="bi bi-gear"></i></th>
                 </tr>
@@ -65,6 +72,15 @@
                         <td class="col">{{ $loop->iteration }}</td>
                         <td class="col">{{ $kegiatan->tanggal }}</td>
                         <td class="col">{!! substr($kegiatan->kegiatan, 0, 50) !!}</td>
+                        <td class="col">
+                            @if($kegiatan->accept == 'accepted')
+                                <i class="bi bi-check-circle-fill text-success"></i> <!-- Icon check jika nilai accept diterima -->
+                            @elseif($kegiatan->accept == 'rejected')
+                                <i class="bi bi-x-circle-fill text-danger"></i> <!-- Icon X jika nilai accept ditolak -->
+                            @else
+                                <i class="bi bi-clock-history text-warning"></i> <!-- Icon pending jika nilai accept masih pending -->
+                            @endif
+                        </td>
                         <td class="col-2 text-center">
                             @if ($kegiatan->dokumentasi)
                                 <img src="{{ asset('storage/' . $kegiatan->dokumentasi) }}" alt="" style="max-height: 50px; overflow: hidden;" class="w-50">
@@ -96,6 +112,7 @@
                     <th class="col">Tanggal Mulai / Selesai</th>
                     <th class="col-2">Nama</th>
                     <th class="col-5">Deskripsi</th>
+                    <th class="col">Status</th>
                     <th class="col-2">Dokumentasi</th>
                     <th class="col"><i class="bi bi-gear"></i></th>
                 </tr>
@@ -107,6 +124,15 @@
                         <td class="col">{{ $proyek->tanggal_mulai }} / {{ $proyek->tanggal_selesai }}</td>
                         <td class="col-2">{{ substr($proyek->nama, 0, 20)  }}</td>
                         <td class="col-5">{!! substr($proyek->deskripsi, 0, 100) !!}</td>
+                        <td class="col">
+                            @if($proyek->accept == 'accepted')
+                                <i class="bi bi-check-circle-fill text-success"></i> <!-- Icon check jika nilai accept diterima -->
+                            @elseif($proyek->accept == 'rejected')
+                                <i class="bi bi-x-circle-fill text-danger"></i> <!-- Icon X jika nilai accept ditolak -->
+                            @else
+                                <i class="bi bi-clock-history text-warning"></i> <!-- Icon pending jika nilai accept masih pending -->
+                            @endif
+                        </td>
                         <td class="col-2 text-center">
                             @if ($proyek->dokumentasi)
                                 <img src="{{ asset('storage/' . $proyek->dokumentasi) }}" alt="" style="max-height: 50px; overflow: hidden;" class="w-50">
@@ -129,7 +155,6 @@
                 @endforeach
             </tbody>
         </table>
-        
         <h4 class="pt-3 mb-4 mt-5">Proyek Bersama</h4>
         <table id="proyek-bersama" class="table table-secondary">
             <thead>
@@ -139,6 +164,7 @@
                     <th class="col-2">Nama</th>
                     <th class="col-4">Deskripsi</th>
                     <th class="col">Bersama</th>
+                    <th class="col">Status</th>
                     <th class="col-2">Dokumentasi</th>
                     <th class="col"><i class="bi bi-gear"></i></th>
                 </tr>
@@ -156,6 +182,15 @@
                                     {{ $mention->name }}
                                 @endif
                             @endforeach
+                        </td>
+                        <td class="col">
+                        @if($proyek->accept == 'accepted')
+                            <i class="bi bi-check-circle-fill text-success"></i> <!-- Icon check jika nilai accept diterima -->
+                        @elseif($proyek->accept == 'rejected')
+                            <i class="bi bi-x-circle-fill text-danger"></i> <!-- Icon X jika nilai accept ditolak -->
+                        @else
+                            <i class="bi bi-clock-history text-warning"></i> <!-- Icon pending jika nilai accept masih pending -->
+                        @endif
                         </td>
                         <td class="col-2 text-center">
                             @if ($proyek->dokumentasi)

@@ -17,24 +17,6 @@ class User extends Authenticatable
         'password',
     ];
     
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($user) {
-            $validator = Validator::make([
-                'nim' => $user->nim,
-                'nip' => $user->nip
-            ], [
-                'nim' => 'nim_xor_nip',
-            ]);
-
-            if ($validator->fails()) {
-                throw new \Exception('Harus ada NIM atau NIP, tidak keduanya.');
-            }
-        });
-    }
-    
     use HasFactory, Notifiable;
 
     /**

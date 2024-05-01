@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kegiatan;
 use Illuminate\Http\Request;
+use App\Models\KomentarKegiatan;
 use Illuminate\Support\Facades\Storage;
 
 class KegiatanController extends Controller
@@ -34,7 +35,8 @@ class KegiatanController extends Controller
         $validatedData = $request->validate([
             'tanggal' => 'required|unique:kegiatans',
             'kegiatan' => 'required',
-            'dokumentasi' => 'required|image|file|max:1024'
+            'dokumentasi' => 'required|image|file|max:1024',
+            'accept' => ''
         ]);
 
         if($request->file('dokumentasi')){
@@ -62,9 +64,11 @@ class KegiatanController extends Controller
      */
     public function edit(Kegiatan $kegiatan)
     {
+        $komentarKegiatan = KomentarKegiatan::where('kegiatan_id', $kegiatan->id)->latest()->first();
         return view('beranda.kegiatan.edit', [
             'active' => 'kegiatan',
-            'kegiatan' => $kegiatan
+            'kegiatan' => $kegiatan,
+            'komentarKegiatan' => $komentarKegiatan
         ]);
     }
 
@@ -75,7 +79,8 @@ class KegiatanController extends Controller
     {
         $rules = [
             'kegiatan' => 'required',
-            'dokumentasi' => 'required|image|file|max:1024'
+            'dokumentasi' => 'required|image|file|max:1024',
+            'accept' => ''
         ];
 
         if($request->tanggal != $kegiatan->tanggal) {

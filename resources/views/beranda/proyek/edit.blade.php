@@ -9,8 +9,27 @@
     </ol>
 </nav>
 
+
 <div class="alert alert-info text-center fs-3 text" role="alert">
-  Tambah Proyek
+  Ubah Proyek
+</div>
+
+<div class="col-lg-6 mb-4">
+  <h5>Catatan:</h5>
+  @if ($komentarProyek)
+      <div class="card mb-3">
+          <div class="card-body">
+              <p>{{ $komentarProyek->komentar }}</p>
+              {{-- <p class="text-muted">Ditambahkan oleh {{ $komentarKegiatan->user->name }} pada {{ $komentarKegiatan->created_at->format('d/m/Y H:i') }}</p> --}}
+          </div>
+      </div>
+  @else
+      <div class="card">
+        <div class="card-body">
+          <p class="text-muted">Tidak ada catatan</p>
+        </div>
+      </div>
+  @endif
 </div>
 
 <div class="container bg-light rounded-2 pb-2 mb-4">

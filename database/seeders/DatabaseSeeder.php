@@ -27,9 +27,9 @@ class DatabaseSeeder extends Seeder
 
         Dosen::factory(10)->gmail()->create();
         User::factory(10)->gmail()->create();
-        Kegiatan::factory(100)->create();
-        Proyek::factory(100)->create();
-        Kelompok::factory(5)->create();
+        // Kegiatan::factory(20)->create();
+        // Proyek::factory(20)->create();
+        // Kelompok::factory(10)->create();
         // User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

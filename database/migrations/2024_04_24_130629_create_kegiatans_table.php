@@ -16,6 +16,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->text('kegiatan');
             $table->string('dokumentasi')->nullable();
+            $table->enum('accept', ['accepted', 'pending', 'rejected'])->default('pending');
             $table->foreignId('user_id');
             $table->timestamps();
         });

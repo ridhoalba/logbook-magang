@@ -10,6 +10,11 @@ class Proyek extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $userId;
+    public function setUserId($userId)
+{
+    $this->userId = $userId;
+}
 
     public function user()
     {
@@ -22,5 +27,13 @@ class Proyek extends Model
             $query->where('id', auth()->user()->kelompok_id);
         });
     }
+    public function mentionsP()
+    {
+        return $this->belongsToMany(User::class, 'proyek_mention')->withTimestamps()->whereHas('kelompok');
+    }
 
+    public function komentar()
+    {
+        return $this->hasMany(KomentarProyek::class);
+    }
 }
