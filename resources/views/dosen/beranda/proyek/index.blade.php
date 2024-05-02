@@ -9,13 +9,7 @@
       </ol>
     </nav>
   </div>
-  
-    <div class="mt-3">
-      <div class="alert alert-info text-center col-md-6 text fs-6 alert-dismissible fade show" role="alert">
-        Selamat Datang di Logbook Magang Online
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    </div>
+
     @foreach ($kelompoks as $kelompok)
     <div class="d-flex col-lg-6 justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       {{-- @dd($kelompok) --}}

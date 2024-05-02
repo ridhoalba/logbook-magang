@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use App\Models\Dosen;
 
 class DosenLoginController extends Controller
 {
@@ -41,4 +42,30 @@ class DosenLoginController extends Controller
     
         return redirect('/dosen/login');
     }
+
+    // reset password 
+    public function showResetPassword()
+    {
+        return view('dosen.login.reset',[
+            'active' => ''
+        ]);
+    }
+
+
+    // public function reset(Request $request)
+    // {
+    //     $request->validate([
+    //         'password' => 'required|string|min:8|confirmed',
+    //     ]);
+    
+    //     // Mengambil objek Dosen yang sedang diautentikasi
+    //     $dosen = auth()->guard('dosen')->user();
+    
+    //     // Memastikan objek Dosen tidak null
+
+    //     $dosen->password = Hash::make($request->password);
+    //     $dosen->save();
+    //     return redirect('/dosen/password/reset')->with('success', 'Password berhasil direset.');
+
+    // }
 }

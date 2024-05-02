@@ -21,6 +21,6 @@ class KomentarKegiatanController extends Controller
         KomentarKegiatan::create($validatedData);
 
         // Redirect kembali ke halaman sebelumnya dengan pesan sukses
-        return redirect()->back()->with('success', 'Komentar berhasil ditambahkan');
+        return redirect()->back()->with('success', 'Catatan berhasil ditambahkan');
     }
 }

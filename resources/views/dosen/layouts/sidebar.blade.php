@@ -31,13 +31,19 @@
               Kelompok
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="/dosen/beranda/users">
+              <i class="bi bi-person-add"></i>
+              Pengguna
+            </a>
+          </li>
           @endcan
         </ul>
         <hr class="my-3">
 
         <ul class="nav flex-column mb-auto">
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="#">
+            <a class="nav-link d-flex align-items-center gap-2" href="/dosen/password/reset">
               <i class="bi bi-person-circle"></i> {{ Auth::guard('dosen')->user()->nip }}
             </a>
           </li>

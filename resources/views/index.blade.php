@@ -11,8 +11,9 @@
     </div>
 
     @if(session('success'))    
-      <div class="alert alert-success text-center" role="alert">
+      <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
         {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>    
     @endif
 
@@ -60,10 +61,10 @@
                 <tr>
                     <th class="col">#</th>
                     <th class="col">Tanggal</th>
-                    <th class="col">Kegiatan</th>
-                    <th class="col">Status</th>
+                    <th class="col-3">Kegiatan</th>
+                    <th class="col-1 text-center">Status</th>
                     <th class="col-2">Dokumentasi</th>
-                    <th class="col"><i class="bi bi-gear"></i></th>
+                    <th class="col-1"><i class="bi bi-gear"></i></th>
                 </tr>
             </thead>
             <tbody>
@@ -71,8 +72,8 @@
                     <tr>
                         <td class="col">{{ $loop->iteration }}</td>
                         <td class="col">{{ $kegiatan->tanggal }}</td>
-                        <td class="col">{!! substr($kegiatan->kegiatan, 0, 50) !!}</td>
-                        <td class="col">
+                        <td class="col-3">{!! substr($kegiatan->kegiatan, 0, 50) !!}</td>
+                        <td class="col-1">
                             @if($kegiatan->accept == 'accepted')
                                 <i class="bi bi-check-circle-fill text-success"></i> <!-- Icon check jika nilai accept diterima -->
                             @elseif($kegiatan->accept == 'rejected')
@@ -81,14 +82,14 @@
                                 <i class="bi bi-clock-history text-warning"></i> <!-- Icon pending jika nilai accept masih pending -->
                             @endif
                         </td>
-                        <td class="col-2 text-center">
+                        <td class="col-2">
                             @if ($kegiatan->dokumentasi)
                                 <img src="{{ asset('storage/' . $kegiatan->dokumentasi) }}" alt="" style="max-height: 50px; overflow: hidden;" class="w-50">
                             @else
                                 <i class="fas fa-file-image"></i>
                             @endif
                         </td>
-                        <td class="col" >
+                        <td class="col-1" >
                             <a href="/beranda/kegiatan/{{ $kegiatan->id }}/edit" class="badge bg-warning"><i class="bi bi-pencil-square"></i></a>
                             <form action="/beranda/kegiatan/{{ $kegiatan->id }}" method="post" class="">
                                 @method('delete')
@@ -110,9 +111,9 @@
                 <tr>
                     <th>#</th>
                     <th class="col">Tanggal Mulai / Selesai</th>
-                    <th class="col-2">Nama</th>
-                    <th class="col-5">Deskripsi</th>
-                    <th class="col">Status</th>
+                    <th class="col-3">Nama</th>
+                    <th class="col-4">Deskripsi</th>
+                    <th class="col-1 text-center">Status</th>
                     <th class="col-2">Dokumentasi</th>
                     <th class="col"><i class="bi bi-gear"></i></th>
                 </tr>
@@ -122,9 +123,9 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td class="col">{{ $proyek->tanggal_mulai }} / {{ $proyek->tanggal_selesai }}</td>
-                        <td class="col-2">{{ substr($proyek->nama, 0, 20)  }}</td>
-                        <td class="col-5">{!! substr($proyek->deskripsi, 0, 100) !!}</td>
-                        <td class="col">
+                        <td class="col-3">{{ substr($proyek->nama, 0, 20)  }}</td>
+                        <td class="col-4">{!! substr($proyek->deskripsi, 0, 100) !!}</td>
+                        <td class="col-1 text-center">
                             @if($proyek->accept == 'accepted')
                                 <i class="bi bi-check-circle-fill text-success"></i> <!-- Icon check jika nilai accept diterima -->
                             @elseif($proyek->accept == 'rejected')
@@ -161,10 +162,10 @@
                 <tr>
                     <th>#</th>
                     <th class="col">Tanggal Mulai / Selesai</th>
-                    <th class="col-2">Nama</th>
-                    <th class="col-4">Deskripsi</th>
-                    <th class="col">Bersama</th>
-                    <th class="col">Status</th>
+                    <th class="col-3">Nama</th>
+                    <th class="col-3">Deskripsi</th>
+                    <th class="col-5">Bersama</th>
+                    <th class="col text-center">Status</th>
                     <th class="col-2">Dokumentasi</th>
                     <th class="col"><i class="bi bi-gear"></i></th>
                 </tr>
@@ -174,16 +175,16 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td class="col">{{ $proyek->tanggal_mulai }} / {{ $proyek->tanggal_selesai }}</td>
-                        <td class="col-2">{{ substr($proyek->nama, 0, 20)  }}</td>
-                        <td class="col-4">{!! substr($proyek->deskripsi, 0, 100) !!}</td>
-                        <td class="col">
+                        <td class="col-3">{{ substr($proyek->nama, 0, 20)  }}</td>
+                        <td class="col-3">{!! substr($proyek->deskripsi, 0, 100) !!}</td>
+                        <td class="col-5">
                             @foreach ($proyek->mentions as $mention)
                                 @if ($mention->id !== auth()->user()->id)
-                                    {{ $mention->name }}
+                                    {{ $mention->name }},
                                 @endif
                             @endforeach
                         </td>
-                        <td class="col">
+                        <td class="col text-center">
                         @if($proyek->accept == 'accepted')
                             <i class="bi bi-check-circle-fill text-success"></i> <!-- Icon check jika nilai accept diterima -->
                         @elseif($proyek->accept == 'rejected')

@@ -20,6 +20,13 @@
     <div class="card-body">
       <h3 class="row ms-2">Deskripsi</h3>
       <div class="d-flex justify-content-end" style="gap: 10px;">
+                    @if($proyek->accept == 'accepted')
+                        <i class="bi bi-check-circle-fill text-success"></i> <!-- Icon check jika nilai accept diterima -->
+                    @elseif($proyek->accept == 'rejected')
+                        <i class="bi bi-x-circle-fill text-danger"></i> <!-- Icon X jika nilai accept ditolak -->
+                    @else
+                        <i class="bi bi-clock-history text-warning"></i> <!-- Icon pending jika nilai accept masih pending -->
+                    @endif
         <form method="post" action="/dosen/beranda/proyek/{{ $proyek->id }}" enctype="multipart/form-data">
           @method('put')
           @csrf
@@ -66,11 +73,11 @@
       <form action="/dosen/beranda/proyek/komentar" method="POST">
         @csrf
         <div class="mb-3">
-          <label for="komentar" class="form-label">Komentar</label>
+          <label for="komentar" class="form-label">Catatan</label>
           <textarea class="form-control" id="komentar" name="komentar" rows="3" required></textarea>
         </div>
         <input type="hidden" name="id_proyek" value="{{ $proyek->id }}">
-        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+        <button type="submit" class="btn btn-primary">Tambah catatan</button>
       </form>
     </div>
   </div>

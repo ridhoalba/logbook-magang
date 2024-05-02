@@ -15,7 +15,7 @@
   </div>
   <div class="table-responsive col-lg-11">
     <h4 class="pt-3 mb-4 mt-2">Proyek</h4>
-        <table id="proyek" class="table table-secondary">
+        <table id="proyekShow" class="table table-secondary">
             <thead>
                 <tr>
                     <th>#</th>

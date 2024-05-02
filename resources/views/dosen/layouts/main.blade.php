@@ -69,6 +69,18 @@
         "scrollY": 380,
         "pageLength": 5
       });
+      $('#user-table').DataTable({
+        "scrollY": 250,
+        "pageLength": 5
+      });
+      $('#dosen-table').DataTable({
+        "scrollY": 250,
+        "pageLength": 5
+      });
+      $('#proyekShow').DataTable({
+        "scrollY": 340,
+        "pageLength": 5
+      });
     });  
     </script>
   </body>

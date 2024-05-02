@@ -18,7 +18,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>    
     @endif
-    <div class="col-12 mb-4 mt-2">
+    <div class="col-sm-12 mb-4 mt-2">
         <div class="card">
             <div class="card-header">
                 <div class="card-title">

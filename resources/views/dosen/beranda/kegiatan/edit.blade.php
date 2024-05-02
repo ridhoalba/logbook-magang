@@ -72,11 +72,11 @@
       <form action="/dosen/beranda/kegiatan/komentar" method="POST">
         @csrf
         <div class="mb-3">
-          <label for="komentar" class="form-label">Komentar</label>
+          <label for="komentar" class="form-label">Catatan</label>
           <textarea class="form-control" id="komentar" name="komentar" rows="3" required></textarea>
         </div>
         <input type="hidden" name="kegiatan_id" value="{{ $kegiatan->id }}">
-        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+        <button type="submit" class="btn btn-primary">Tambah catatan</button>
       </form>
     </div>
   </div>
