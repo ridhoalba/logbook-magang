@@ -65,7 +65,7 @@
             { "width": "50%", "targets": 2 }  // Kolom ketiga
         ]
       });
-      $('#proyek-bersama-table').DataTable({
+      $('#proyek-bersama').DataTable({
         "scrollY": 380,
         "pageLength": 5
       });

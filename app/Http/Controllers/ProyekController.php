@@ -41,7 +41,7 @@ class ProyekController extends Controller
             'tanggal_selesai' => 'required',
             'nama' => 'required',
             'deskripsi' => 'required',
-            'dokumentasi' => 'required|image|file|max:1024'
+            'dokumentasi' => 'required|image|file|max:4096'
         ]);
 
         if($request->file('dokumentasi')){
@@ -103,7 +103,7 @@ class ProyekController extends Controller
             'tanggal_selesai' => 'required',
             'nama' => 'required',
             'deskripsi' => 'required',
-            'dokumentasi' => 'image|file|max:1024'
+            'dokumentasi' => 'image|file|max:4096'
         ]);
 
         $mentions = $request->input('mention', []);

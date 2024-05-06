@@ -35,7 +35,7 @@ class KegiatanController extends Controller
         $validatedData = $request->validate([
             'tanggal' => 'required|unique:kegiatans',
             'kegiatan' => 'required',
-            'dokumentasi' => 'required|image|file|max:1024',
+            'dokumentasi' => 'required|image|file|max:4096',
             'accept' => ''
         ]);
 
@@ -79,7 +79,7 @@ class KegiatanController extends Controller
     {
         $rules = [
             'kegiatan' => 'required',
-            'dokumentasi' => 'required|image|file|max:1024',
+            'dokumentasi' => 'required|image|file|max:4096',
             'accept' => ''
         ];
 
