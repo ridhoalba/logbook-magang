@@ -1,0 +1,65 @@
+version: "3"
+
+services:
+    app:
+        build: .
+        image: logbookmagang
+        container_name: logbookmagang
+        restart: unless-stopped
+        tty: true
+        environment:
+            SERVICE_NAME: app
+        working_dir: /var/www/logbook-magang
+        volumes:
+            - .:/var/www/logbook-magang
+            - ./storage/php.ini:/usr/local/etc/php/conf.d/local.ini
+        networks:
+            - logbookmagang
+
+    webserver:
+        image: nginx:alpine
+        container_name: nginxlogbookmagang
+        restart: unless-stopped
+        tty: true
+        ports:
+            - "2022:80"
+        volumes:
+            - .:/var/www/logbook-magang
+            - ./storage/:/etc/nginx/conf.d/
+        networks:
+            - logbookmagang
+    db:
+        image: mysql:5.7
+        container_name: dblogbookmagang
+        restart: always
+        tty: true
+        ports:
+            - "20222:3306"
+        volumes:
+            - lbdata:/var/lib/mysql
+        environment:
+            MYSQL_PASSWORD: alba
+            MYSQL_ROOT_PASSWORD: alba
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        networks:
+            - logbookmagang
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: pmalogbookmagang
+        links:
+            - db
+        restart: always
+        ports:
+            - 7000:80
+        networks:
+            - logbookmagang
+
+networks:
+    logbookmagang:
+        driver: bridge
+
+volumes:
+    lbdata:
+        driver: local
