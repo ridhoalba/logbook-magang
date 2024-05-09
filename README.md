@@ -1,6 +1,6 @@
 # Panduan Cloning dan Menjalankan Proyek Laravel
 
-Ini adalah panduan langkah-demi-langkah untuk mengkloning proyek Laravel ini dari repositori GitHub dan menjalankannya di lingkungan lokal Anda.
+Ini adalah panduan langkah-demi-langkah untuk mengkloning proyek Logbook Magang ini dari repositori GitHub dan menjalankannya di lingkungan lokal Anda.
 
 ## Persyaratan
 
