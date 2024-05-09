@@ -72,3 +72,4 @@ Buka browser Anda dan akses proyek Laravel melalui URL yang ditampilkan pada ter
 
 semoga lancar
 test
+lagi
