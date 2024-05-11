@@ -12,12 +12,12 @@
           <li class="nav-item">
             <a class="nav-link {{ ($active === 'kegiatan') ? 'active' : '' }}" href="/beranda/kegiatan">Kegiatan</a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link {{ ($active === 'proyek') ? 'active' : '' }}" href="/beranda/proyek">Proyek</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ ($active === 'daftar') ? 'active' : '' }}" href="/beranda/kelompok">Daftar</a>
-          </li>
+          </li> --}}
         </ul>
         <ul class="navbar-nav ms-auto">
           @auth
