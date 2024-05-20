@@ -85,28 +85,28 @@ class DatabaseSeeder extends Seeder
             'nim' => 'E32210053',
             'email' => 'e32210053@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 4
         ]);
         User::create([
             'name' => 'Vinkcy Firman Pratama',
             'nim' => 'E32210103',
             'email' => 'e32210103@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 4
         ]);
         User::create([
             'name' => 'Rachman Tio Maulana',
             'nim' => 'E32210055',
             'email' => 'e32210055@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 4
         ]);
         User::create([
             'name' => 'Damar Rawuh Sarjito',
             'nim' => 'E32210095',
             'email' => 'e32210095@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 4
         ]);
         User::create([
             'name' => 'I Putu Sri Kresna Loru Ariasa',
@@ -218,56 +218,56 @@ class DatabaseSeeder extends Seeder
             'nim' => 'E32210550',
             'email' => 'e32210550@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 10
         ]);
         User::create([
             'name' => 'Diana Nafisa',
             'nim' => 'E32210585',
             'email' => 'e32210585@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 10
         ]);
         User::create([
             'name' => 'Dyah Ridwiyanti Isnaini',
             'nim' => 'E32210589',
             'email' => 'e32210589@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 10
         ]);
         User::create([
             'name' => 'Nuris Mahbubah',
             'nim' => 'E32210059',
             'email' => 'e32210059@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 10
         ]);
         User::create([
             'name' => 'Anna Salsabila Fyanis',
             'nim' => 'E32210977',
             'email' => 'e32210977@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 11
         ]);
         User::create([
             'name' => 'Ismi Aprilia',
             'nim' => 'E32210080',
             'email' => 'e32210080@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 11
         ]);
         User::create([
             'name' => 'Putri Marwatus Soleha',
             'nim' => 'E32210709',
             'email' => 'e32210709@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 11
         ]);
         User::create([
             'name' => 'Dewi Rismawati',
             'nim' => 'E32211798',
             'email' => 'e32211798@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 11
         ]);
         User::create([
             'name' => 'Rezainal Vito',
@@ -302,28 +302,28 @@ class DatabaseSeeder extends Seeder
             'nim' => 'E32210490',
             'email' => 'e32210490@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 5
         ]);
         User::create([
             'name' => 'Nuril Akbar',
             'nim' => 'E32210493',
             'email' => 'e32210493@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 5
         ]);
         User::create([
             'name' => 'Ryan Ajeng Sukma Dewi T.P',
             'nim' => 'E32210446',
             'email' => 'e32210446@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 5
         ]);
         User::create([
             'name' => 'Nabila Arrohmah',
             'nim' => 'E32211615',
             'email' => 'e32211615@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 5
         ]);
         User::create([
             'name' => 'Alfiani Nur Aziza',
@@ -442,56 +442,56 @@ class DatabaseSeeder extends Seeder
             'nim' => 'E32210638',
             'email' => 'e32210638@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 8
         ]);
         User::create([
             'name' => 'Alfan Al Ikhsan',
             'nim' => 'E32210886',
             'email' => 'e32210886@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 8
         ]);
         User::create([
             'name' => 'Siti Aisyah',
             'nim' => 'E32210862',
             'email' => 'e32210862@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 7
         ]);
         User::create([
             'name' => 'Mutyara Pertiwi',
             'nim' => 'E32210813',
             'email' => 'e32210813@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 7
         ]);
         User::create([
             'name' => 'Muhammad Egardy Hidayad',
             'nim' => 'E32210350',
             'email' => 'e32210350@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 9
         ]);
         User::create([
             'name' => 'Cipta Gentha Dimas Y.M',
             'nim' => 'E32210138',
             'email' => 'e32210138@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 9
         ]);
         User::create([
             'name' => 'Reza Anggara Januarta P.B.S',
             'nim' => 'E32210344',
             'email' => 'e32210344@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 9
         ]);
         User::create([
             'name' => 'Ipung Nurhanianzah',
             'nim' => 'E32210278',
             'email' => 'e32210278@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 9
         ]);
         User::create([
             'name' => 'Ahmad Ridho',
@@ -673,21 +673,21 @@ class DatabaseSeeder extends Seeder
             'nim' => 'E32210892',
             'email' => 'e32210892@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 6
         ]);
         User::create([
             'name' => 'Imandito Abthal Akbar',
             'nim' => 'E32210688',
             'email' => 'e32210688@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 6
         ]);
         User::create([
             'name' => 'Gheril Arofani',
             'nim' => 'E32210786',
             'email' => 'e32210786@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 6
         ]);
 
         // DOSEN
@@ -785,10 +785,38 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Diskominfo Kabupaten Malang',
             'dosen_id' => 10
         ]);
-        // Kelompok::create([
-        //     'nama' => 'PT. Mega Artha Lintas Data Situbondo',
-        //     'dosen_id' => 10
-        // ]);
+        Kelompok::create([
+            'nama' => 'Xeno Persada Teknologi Surabaya',
+            'dosen_id' => 8
+        ]);
+        Kelompok::create([
+            'nama' => 'Icon+ Surabaya',
+            'dosen_id' => null
+        ]);
+        Kelompok::create([
+            'nama' => 'Habibi Garden Bandung',
+            'dosen_id' => null
+        ]);
+        Kelompok::create([
+            'nama' => 'Puslitkoka Jember',
+            'dosen_id' => 1
+        ]);
+        Kelompok::create([
+            'nama' => 'Diskominfo Probolinggo',
+            'dosen_id' => 5
+        ]);
+        Kelompok::create([
+            'nama' => 'Mangli Djaya Raya Jember',
+            'dosen_id' => null
+        ]);
+        Kelompok::create([
+            'nama' => 'Mark Design Surabaya',
+            'dosen_id' => null
+        ]);
+        Kelompok::create([
+            'nama' => 'Telkom Akses Jember',
+            'dosen_id' => null
+        ]);
 
         // Dosen::factory(10)->gmail()->create();
         // User::factory(10)->gmail()->create();
