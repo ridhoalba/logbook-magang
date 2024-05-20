@@ -55,6 +55,9 @@ class DaftarKelompokController extends Controller
         // Perbarui kelompok_id untuk pengguna yang dipilih
         $selectedUsers = $request->input('selected_users');
         User::whereIn('id', $selectedUsers)->update(['kelompok_id' => $kelompok->id]);
+        // Perbarui kelompok_id untuk pengguna yang membuat kelompok
+        $userId = auth()->user()->id;
+        User::where('id', $userId)->update(['kelompok_id' => $kelompok->id]);
 
         return redirect('/beranda/kelompok')->with('success', 'Berhasil mendaftar !');
     }

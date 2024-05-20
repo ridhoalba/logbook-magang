@@ -57,28 +57,28 @@ class DatabaseSeeder extends Seeder
             'nim' => 'E32211894',
             'email' => 'e32211894@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 12
         ]);
         User::create([
             'name' => 'Ananda Anggi Dwi Cahyo',
             'nim' => 'E32212299',
             'email' => 'e32212299@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 12
         ]);
         User::create([
             'name' => 'Mohammad Yunus Wicaksono',
             'nim' => 'E32210581',
             'email' => 'e32210581@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 12
         ]);
         User::create([
             'name' => 'Khoirul Tamami',
             'nim' => 'E32212309',
             'email' => 'e32212309@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 12
         ]);
         User::create([
             'name' => 'Dimas Dwi Apriliyanto',
@@ -817,6 +817,11 @@ class DatabaseSeeder extends Seeder
             'nama' => 'Telkom Akses Jember',
             'dosen_id' => null
         ]);
+        Kelompok::create([
+            'nama' => 'PT Telkom Pasuruan',
+            'dosen_id' => null
+        ]);
+
 
         // Dosen::factory(10)->gmail()->create();
         // User::factory(10)->gmail()->create();
