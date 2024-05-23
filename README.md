@@ -69,5 +69,3 @@ php artisan serve
 ```
 
 Buka browser Anda dan akses proyek Laravel melalui URL yang ditampilkan pada terminal.
-
-test lagi lagi lagi
