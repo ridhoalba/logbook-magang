@@ -4,7 +4,12 @@
 cd /app
 
 # Run necessary artisan commands
-php artisan storage:link
+cp .env.example .env
+composer install
+php artisan key:generate
+php artisan migrate
+php artisan migrate:fresh --seed
+php artisan storage:link 
 
 
 # Start the Laravel development server
