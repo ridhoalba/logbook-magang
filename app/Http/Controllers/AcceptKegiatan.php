@@ -80,7 +80,7 @@ class AcceptKegiatan extends Controller
 
         Kegiatan::where('id', $kegiatan->id)->update($validatedData);
 
-        return redirect()->back()->with('success', 'Berhasil mengubah status');
+        return redirect('/dosen/beranda/kegiatan/')->with('success', 'Berhasil mengubah status');
 
     }
 
@@ -97,4 +97,19 @@ class AcceptKegiatan extends Controller
         $kegiatans = Kegiatan::where('user_id', $user->id)->get();
         return view('dosen.beranda.kegiatan.show', compact('kegiatans', 'user'));
     }
+
+    public function updateStatus(Request $request)
+    {
+        $kegiatanIds = $request->input('kegiatan_ids');
+        $status = $request->input('status'); // Menerima status dari input form
+
+        if ($kegiatanIds) {
+            Kegiatan::whereIn('id', $kegiatanIds)->update(['accept' => $status]);
+        }
+
+        return redirect()->back()->with('success', 'Status kegiatan berhasil diperbarui.');
+    }
+
+
+    
 }

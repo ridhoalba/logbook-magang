@@ -498,28 +498,28 @@ class DatabaseSeeder extends Seeder
             'nim' => 'E32211859',
             'email' => 'e32211859@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 2
         ]);
         User::create([
             'name' => 'Hidayah Aliy Fisabilillah',
             'nim' => 'E32201381',
             'email' => 'e32201381@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 2
         ]);
         User::create([
             'name' => 'Muhammad Faiz Zain Habibi',
             'nim' => 'E32210179',
             'email' => 'e32210179@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 2
         ]);
         User::create([
             'name' => 'Ghilman roif zakiri',
             'nim' => 'E32212281',
             'email' => 'e32212281@student.polije.ac.id',
             'password' => bcrypt('12345'),
-            'kelompok_id' => null
+            'kelompok_id' => 2
         ]);
         User::create([
             'name' => 'Maulana Wira Wisesa',

@@ -81,6 +81,21 @@
         "scrollY": 340,
         "pageLength": 5
       });
+      // Select/Deselect all checkboxes
+      $('#select-all').on('click', function() {
+            var rows = $('#kegiatan-table').DataTable().rows({ 'search': 'applied' }).nodes();
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+        });
+
+        // When one checkbox is clicked, check/uncheck select-all checkbox
+        $('#kegiatan-table tbody').on('change', 'input[type="checkbox"]', function() {
+            if (!this.checked) {
+                var el = $('#select-all').get(0);
+                if (el && el.checked && ('indeterminate' in el)) {
+                    el.indeterminate = true;
+                }
+            }
+        });
     });  
     </script>
   </body>

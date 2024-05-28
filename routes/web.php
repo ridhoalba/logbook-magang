@@ -36,6 +36,8 @@ Route::middleware('auth:dosen')->group(function () {
     Route::get('/dosen/beranda/kegiatan/{user}', [AcceptKegiatan::class, 'kegiatanShow'])->name('kegiatan.user');
 
     Route::resource('/dosen/beranda/kegiatan', AcceptKegiatan::class);
+    // update semua kegiatan statusnya
+    Route::post('/dosen/beranda/kegiatan/update-status', [AcceptKegiatan::class, 'updateStatus'])->name('kegiatan.updateStatus');
 
     // komentar kegiatan
     Route::post('/dosen/beranda/kegiatan/komentar', [KomentarKegiatanController::class, 'store']);
@@ -44,6 +46,8 @@ Route::middleware('auth:dosen')->group(function () {
 
     // resource dosen proyek
     Route::resource('/dosen/beranda/proyek', AcceptProyekController::class);
+    // update semua tatusnya
+    Route::post('/dosen/beranda/proyek/update-status', [AcceptProyekController::class, 'updateStatus'])->name('proyek.updateStatus');
     // komentar proyek 
     Route::post('/dosen/beranda/proyek/komentar', [KomentarProyekController::class, 'store']);
     // korbid | kelompok
@@ -54,6 +58,13 @@ Route::middleware('auth:dosen')->group(function () {
     Route::delete('/dosen/beranda/dosen/{id}', [DosenUsersController::class, 'destroyDosen']);
     Route::get('/dosen/beranda/dosen/create', [DosenUsersController::class, 'createDosen']);
     Route::post('/dosen/beranda/dosen', [DosenUsersController::class, 'storeDosen']);
+
+    // Monitori seluruh kegiatan dan proyek magang
+    Route::get('/dosen/beranda/kategori', [DosenBerandaController::class, 'kategori']);
+    Route::get('/dosen/beranda/kategori/kegiatan', [DosenBerandaController::class, 'kegiatan']);
+    Route::get('/dosen/beranda/kategori/proyek', [DosenBerandaController::class, 'proyek']);
+    Route::get('/dosen/beranda/kategori/kegiatan/{user}', [DosenBerandaController::class, 'MonitorKegiatanShow'])->name('MonitorKegiatan.user');
+    Route::get('/dosen/beranda/kategori/proyek/{user}', [DosenBerandaController::class, 'MonitorProyekShow'])->name('MonitorProyek.user');
 });
 
 // dosen beranda kegiatan

@@ -133,4 +133,18 @@ class AcceptProyekController extends Controller
         // $proyeks = Proyek::where('user_id', $user->id)->get();
         // return view('dosen.beranda.proyek.show', compact('proyeks', 'user'));
     }
+
+    //update semua status
+    public function updateStatus(Request $request)
+    {
+        $proyekIds = $request->input('proyek_ids');
+        $status = $request->input('status'); // Menerima status dari input form
+
+        if ($proyekIds) {
+            Proyek::whereIn('id', $proyekIds)->update(['accept' => $status]);
+        }
+
+        return redirect()->back()->with('success', 'Status proyek berhasil diperbarui.');
+    }
+
 }
