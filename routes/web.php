@@ -59,12 +59,12 @@ Route::middleware('auth:dosen')->group(function () {
     Route::get('/dosen/beranda/dosen/create', [DosenUsersController::class, 'createDosen']);
     Route::post('/dosen/beranda/dosen', [DosenUsersController::class, 'storeDosen']);
 
-    // Monitori seluruh kegiatan dan proyek magang
-    Route::get('/dosen/beranda/kategori', [DosenBerandaController::class, 'kategori']);
-    Route::get('/dosen/beranda/kategori/kegiatan', [DosenBerandaController::class, 'kegiatan']);
-    Route::get('/dosen/beranda/kategori/proyek', [DosenBerandaController::class, 'proyek']);
-    Route::get('/dosen/beranda/kategori/kegiatan/{user}', [DosenBerandaController::class, 'MonitorKegiatanShow'])->name('MonitorKegiatan.user');
-    Route::get('/dosen/beranda/kategori/proyek/{user}', [DosenBerandaController::class, 'MonitorProyekShow'])->name('MonitorProyek.user');
+    // // Monitori seluruh kegiatan dan proyek magang
+    // Route::get('/dosen/beranda/kategori', [DosenBerandaController::class, 'kategori']);
+    // Route::get('/dosen/beranda/kategori/kegiatan', [DosenBerandaController::class, 'kegiatan']);
+    // Route::get('/dosen/beranda/kategori/proyek', [DosenBerandaController::class, 'proyek']);
+    // Route::get('/dosen/beranda/kategori/kegiatan/{user}', [DosenBerandaController::class, 'MonitorKegiatanShow'])->name('MonitorKegiatan.user');
+    // Route::get('/dosen/beranda/kategori/proyek/{user}', [DosenBerandaController::class, 'MonitorProyekShow'])->name('MonitorProyek.user');
 });
 
 // dosen beranda kegiatan
