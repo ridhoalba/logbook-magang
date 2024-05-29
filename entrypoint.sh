@@ -4,8 +4,8 @@
 cd /app
 
 # Run necessary artisan commands
+
 cp .env.example .env
-composer install --prefer-dist
 php artisan key:generate
 php artisan migrate
 php artisan migrate:fresh --seed
