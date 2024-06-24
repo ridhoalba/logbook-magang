@@ -37,12 +37,12 @@
               Pengguna
             </a>
           </li>
-          {{-- <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="/dosen/beranda/kategori">
               <i class="bi bi-journal-check"></i>
               Semua Proyek dan Kegiatan
             </a>
-          </li> --}}
+          </li>
           @endcan
         </ul>
         <hr class="my-3">
