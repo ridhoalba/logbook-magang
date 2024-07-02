@@ -44,6 +44,9 @@
           <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
         </div>
         <button type="submit" class="btn btn-primary mt-4">Login</button>
+        <div class="text-center mt-3">
+          <a href="/login" class="btn btn-link text-white">Login sebagai Mahasiswa</a>
+        </div>
       </form>
     </div>
   </div>
