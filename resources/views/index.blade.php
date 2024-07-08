@@ -7,7 +7,7 @@
         </ol>
     </nav>
     <div class="alert alert-info text-center text fs-3" role="alert">
-        Selamat Datang di Logbook Magang Online
+        Selamat Bergabung di Logbook Magang Online
     </div>
 
     @if(session('success'))    
